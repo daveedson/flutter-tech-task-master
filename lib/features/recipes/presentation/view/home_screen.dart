@@ -105,6 +105,7 @@ class HomeScreen extends ConsumerWidget {
             child: Text(
               "Create your Reciepe",
               textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.w800),
             ),
           )
         ],
@@ -116,8 +117,6 @@ class HomeScreen extends ConsumerWidget {
     _selectedDate = args.value.toString().replaceAll("00:00:00.000", "");
 
     print(_selectedDate);
-    SchedulerBinding.instance.addPostFrameCallback((duration) {
-      //  setState(() {});
-    });
+    SchedulerBinding.instance.addPostFrameCallback((duration) {});
   }
 }
