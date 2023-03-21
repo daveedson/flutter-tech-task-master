@@ -5,7 +5,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:tech_task/app.dart';
 
 void main() => runApp(
-      MyApp(),
+      ProviderScope(child: MyApp()),
     );
 
 final dioProvider = Provider<Dio>((ref) {

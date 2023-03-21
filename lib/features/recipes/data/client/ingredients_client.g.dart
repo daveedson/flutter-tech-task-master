@@ -19,13 +19,13 @@ class _IngredientClient implements IngredientClient {
   String? baseUrl;
 
   @override
-  Future<GetIngridentResponseModel> getIngredients() async {
+  Future<List<GetIngridentResponseModel?>> getIngredients() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<GetIngridentResponseModel>(Options(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<GetIngridentResponseModel>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -37,7 +37,11 @@ class _IngredientClient implements IngredientClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = GetIngridentResponseModel.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => i == null
+            ? null
+            : GetIngridentResponseModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

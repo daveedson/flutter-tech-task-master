@@ -8,5 +8,5 @@ abstract class IngredientClient {
   factory IngredientClient(Dio dio, {String baseUrl}) = _IngredientClient;
 
   @GET("ingredients")
-  Future<GetIngridentResponseModel> getIngredients();
+Future <List<GetIngridentResponseModel?>> getIngredients();
 }

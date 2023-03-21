@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_task/features/recipes/presentation/view/ingredients_screen.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(),
+      home: IngredientsScreen(),
     );
   }
 }
