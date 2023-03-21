@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tech_task/features/recipes/presentation/view/home_screen.dart';
+import 'package:tech_task/features/recipes/presentation/view/ingredients_screen.dart';
 
 
-enum AppRoute { home }
+enum AppRoute { home,ingredients,}
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   final router = AppRouters();
@@ -20,7 +22,15 @@ class AppRouters {
       path: "/",
       name: AppRoute.home.name,
       builder: (context, state) => HomeScreen(),
-      routes: [],
+      routes: [
+        GoRoute(
+            path: "dateofbirth",
+            name: AppRoute.ingredients.name,
+            pageBuilder: (context, state) => MaterialPage(
+                  fullscreenDialog: true,
+                  child: IngredientsScreen(),
+                )),
+      ],
     ),
   ];
 }

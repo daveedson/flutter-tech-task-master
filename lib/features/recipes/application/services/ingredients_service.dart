@@ -18,20 +18,14 @@ class IngredientServiceImpl implements IngredientsService {
   IngredientServiceImpl(this.ref);
 
   @override
-  Future <Result<List<GetIngridentResponseModel>,Failure>>
-      getIngredients() async {
+  Future <Result<List<GetIngridentResponseModel>,Failure>>getIngredients() async {
     try {
-      final results =
-          await ref.read(getIngridentsRepositoryProvider).fetchIngredients();
-      var resultResponse;
-      results.forEach((element) {
-        resultResponse = element;
-        print(resultResponse);
-      });
-      if (results.isEmpty) {
+      final results = await ref.read(getIngridentsRepositoryProvider).fetchIngredients();
+    
+      if (results!.isEmpty) {
         return Error(Failure(message: 'No Ingredients found'));
       } else {
-        return Success(resultResponse);
+        return Success(results);
       }
     } on Failure catch (e) {
       return Error(e);

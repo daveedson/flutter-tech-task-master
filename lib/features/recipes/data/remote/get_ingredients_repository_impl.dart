@@ -23,12 +23,10 @@ class GetIngredientsRepositoryImplementation
   final IngredientClient _ingredientClient;
 
   @override
-  Future<List<GetIngridentResponseModel?>> fetchIngredients() async {
+  Future<List<GetIngridentResponseModel>?> fetchIngredients() async {
     try {
       final response = await _ingredientClient.getIngredients();
-      response.forEach((element) {
-        print(element?.title);
-      });
+     
       return response;
     } on DioError catch (e) {
       if (e.error is SocketException) {

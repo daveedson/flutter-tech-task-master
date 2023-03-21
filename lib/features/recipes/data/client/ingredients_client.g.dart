@@ -19,7 +19,7 @@ class _IngredientClient implements IngredientClient {
   String? baseUrl;
 
   @override
-  Future<List<GetIngridentResponseModel?>> getIngredients() async {
+  Future<List<GetIngridentResponseModel>?> getIngredients() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -37,10 +37,9 @@ class _IngredientClient implements IngredientClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => i == null
-            ? null
-            : GetIngridentResponseModel.fromJson(i as Map<String, dynamic>))
+    var value = _result.data
+        ?.map((dynamic i) =>
+            GetIngridentResponseModel.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

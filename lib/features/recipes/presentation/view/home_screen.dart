@@ -3,8 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:tech_task/core/routes.dart';
 
 class HomeScreen extends ConsumerWidget {
   String _selectedDate = "";
@@ -74,7 +76,8 @@ class HomeScreen extends ConsumerWidget {
                                   selectionChanged(
                                     dateRangePickerSelectionChangedArgs,
                                   );
-                                   Navigator.pop(context);
+                                  context.pop();
+                                  context.goNamed(AppRoute.ingredients.name);
                                 },
                                 selectionColor: Color(0xffDB6C16),
                                 todayHighlightColor: Colors.grey,
