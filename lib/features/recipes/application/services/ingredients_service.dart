@@ -9,7 +9,7 @@ final ingredientServiceProvider = Provider<IngredientsService>((ref) {
 });
 
 abstract class IngredientsService {
-  Future<Result<GetIngridentResponseModel, Failure>> getIngredientsService();
+  Future <Result<List<GetIngridentResponseModel>,Failure>> getIngredients();
 }
 
 class IngredientServiceImpl implements IngredientsService {
@@ -18,8 +18,8 @@ class IngredientServiceImpl implements IngredientsService {
   IngredientServiceImpl(this.ref);
 
   @override
-  Future<Result<GetIngridentResponseModel, Failure>>
-      getIngredientsService() async {
+  Future <Result<List<GetIngridentResponseModel>,Failure>>
+      getIngredients() async {
     try {
       final results =
           await ref.read(getIngridentsRepositoryProvider).fetchIngredients();

@@ -5,7 +5,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import 'package:tech_task/features/recipes/application/services/ingredients_service.dart';
 
 class HomeScreen extends ConsumerWidget {
   String _selectedDate = "";
