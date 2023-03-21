@@ -10,7 +10,7 @@ void main() => runApp(
 
 final dioProvider = Provider<Dio>((ref) {
   Dio dio = Dio(BaseOptions(
-    baseUrl: "https://ubenwa-cat-api-stage.herokuapp.com/",
+    baseUrl: "https://lb7u7svcm5.execute-api.ap-southeast-1.amazonaws.com/dev/",
     connectTimeout: Duration(milliseconds: 30000),
   ));
   dio.interceptors.add(
