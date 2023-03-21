@@ -13,8 +13,9 @@ class MyApp extends ConsumerWidget {
       title: 'Flutter Demo',
       routerConfig: gorouter,
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: GoogleFonts.poppinsTextTheme(textTheme)),
+        primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.poppinsTextTheme(textTheme),
+      ),
     );
   }
 }
