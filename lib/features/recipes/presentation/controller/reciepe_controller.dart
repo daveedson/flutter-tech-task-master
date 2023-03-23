@@ -5,7 +5,7 @@ import 'package:tech_task/features/recipes/presentation/controller/ingredients_c
 import 'package:tech_task/features/recipes/presentation/states/reciepe_state.dart';
 
 final reciepeControllerProvider =
-    StateNotifierProvider<ReciepeController, ReciepeState>((ref) {
+    StateNotifierProvider.autoDispose<ReciepeController, ReciepeState>((ref) {
   return ReciepeController(
       ref: ref,
       reciepeState: ReciepeState(
