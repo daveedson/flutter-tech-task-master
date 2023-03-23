@@ -7,6 +7,6 @@ part 'ingredients_client.g.dart';
 abstract class IngredientClient {
   factory IngredientClient(Dio dio, {String baseUrl}) = _IngredientClient;
 
-  @GET("ingredients")
+@GET("ingredients")
 Future <List<GetIngridentResponseModel>?> getIngredients();
 }
