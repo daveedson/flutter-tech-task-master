@@ -12,7 +12,6 @@ class IngredientsScreen extends ConsumerStatefulWidget {
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
       _IngredientsScreenState();
-  static GetIngridentResponseModel? ingredients;
 }
 
 class _IngredientsScreenState extends ConsumerState<IngredientsScreen> {
@@ -30,16 +29,18 @@ class _IngredientsScreenState extends ConsumerState<IngredientsScreen> {
         ref.read(ingredientControllerProvider.notifier).selectedItems;
     return ref.watch(ingredientControllerProvider).ingredients.when(
           data: (List<GetIngridentResponseModel> data) => Scaffold(
-              floatingActionButton:selectedItems.isEmpty?null: FloatingActionButton.extended(
-                  backgroundColor: Color(0xffEF2D5A),
-                  onPressed: () {
-                    context.goNamed(AppRoute.reciepe.name);
-                  },
-                  label: Text(
-                    "Create Recepie",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18.0),
-                  )),
+              floatingActionButton: selectedItems.isEmpty
+                  ? null
+                  : FloatingActionButton.extended(
+                      backgroundColor: Color(0xffEF2D5A),
+                      onPressed: () {
+                        context.goNamed(AppRoute.reciepe.name);
+                      },
+                      label: Text(
+                        "Create Recepie",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      )),
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0,
@@ -67,7 +68,6 @@ class _IngredientsScreenState extends ConsumerState<IngredientsScreen> {
                       padding: EdgeInsets.only(bottom: 70.0),
                       itemBuilder: (context, index) {
                         final ingredients = data[index];
-                        IngredientsScreen.ingredients = ingredients;
                         return IngredientContainer(
                           name: ingredients.title!,
                           date: ingredients.useBy!,
