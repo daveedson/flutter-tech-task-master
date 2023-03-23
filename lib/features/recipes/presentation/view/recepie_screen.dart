@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:tech_task/features/recipes/domain/model/recipe_response_model.dart';
 import 'package:tech_task/features/recipes/presentation/controller/reciepe_controller.dart';
 import 'package:tech_task/widgets/reciepe_container.dart';
+import 'package:tech_task/widgets/show_bottomsheet.dart';
 
 class ReciepeScreen extends ConsumerStatefulWidget {
   const ReciepeScreen({super.key});
@@ -53,12 +54,10 @@ class _ReciepeScreenState extends ConsumerState<ReciepeScreen> {
                       padding: EdgeInsets.only(bottom: 70.0),
                       itemBuilder: (context, index) {
                         final reciepes = data[index];
-                        return GestureDetector(
-                          onTap: () {},
-                          child: ReciepeContainer(
-                            ingridentsCount: reciepes.ingredients!.length,
-                            name: reciepes.title!,
-                          ),
+                        return ReciepeContainer(
+                          ingridentsCount: reciepes.ingredients!.length,
+                          name: reciepes.title!,
+                          ingridentsNeeded: reciepes.ingredients!.toString(),
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) =>
