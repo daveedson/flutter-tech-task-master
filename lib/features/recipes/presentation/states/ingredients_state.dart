@@ -18,4 +18,15 @@ class IngredientsState {
 
   @override
   String toString() => 'IngredientsState(ingredients: $ingredients)';
+
+  @override
+  bool operator ==(covariant IngredientsState other) {
+    if (identical(this, other)) return true;
+  
+    return 
+      other.ingredients == ingredients;
+  }
+
+  @override
+  int get hashCode => ingredients.hashCode;
 }
