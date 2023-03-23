@@ -4,12 +4,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tech_task/features/recipes/domain/model/recipe_response_model.dart';
 
 class ReciepeState {
+    ReciepeState(this.reciepe,);
+
     final AsyncValue<List<RecipeResponseModel>> reciepe;
 
-  ReciepeState(this.reciepe);
+  
 
-  @override
-  String toString() => 'ReciepeState(reciepe: $reciepe)';
+  
+
+  ReciepeState copyWith({
+    AsyncValue<List<RecipeResponseModel>>? reciepe,
+  }) {
+    return ReciepeState(
+      reciepe ?? this.reciepe,
+    );
+  }
 
   @override
   bool operator ==(covariant ReciepeState other) {
@@ -22,11 +31,6 @@ class ReciepeState {
   @override
   int get hashCode => reciepe.hashCode;
 
-  ReciepeState copyWith({
-    AsyncValue<List<RecipeResponseModel>>? reciepe,
-  }) {
-    return ReciepeState(
-      reciepe ?? this.reciepe,
-    );
-  }
+  @override
+  String toString() => 'ReciepeState(reciepe: $reciepe)';
 }

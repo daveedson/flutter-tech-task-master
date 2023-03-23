@@ -21,9 +21,7 @@ class _ReciepeClient implements ReciepeClient {
   @override
   Future<List<RecipeResponseModel>?> getReciepe(ingredients) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'ingredients': ingredients.toJson()
-    };
+    final queryParameters = <String, dynamic>{r'ingredients': ingredients};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio

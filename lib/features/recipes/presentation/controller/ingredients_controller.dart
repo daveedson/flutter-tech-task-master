@@ -5,7 +5,7 @@ import 'package:tech_task/features/recipes/presentation/states/ingredients_state
 import '../../domain/model/ingrident_response_model.dart';
 
 final ingredientControllerProvider =
-    StateNotifierProvider<IngredientsContoller, IngredientsState>((ref) {
+    StateNotifierProvider.autoDispose<IngredientsContoller, IngredientsState>((ref) {
   return IngredientsContoller(
       ref: ref,
       ingredientsState: IngredientsState(
@@ -15,7 +15,7 @@ final ingredientControllerProvider =
 
 class IngredientsContoller extends StateNotifier<IngredientsState> {
   final Ref ref;
-
+List<String> selectedItems = [];
   IngredientsContoller({IngredientsState? ingredientsState, required this.ref})
       : super(ingredientsState!);
 

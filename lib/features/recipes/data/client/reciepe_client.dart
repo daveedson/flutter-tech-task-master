@@ -8,5 +8,7 @@ abstract class ReciepeClient {
   factory ReciepeClient(Dio dio, {String baseUrl}) = _ReciepeClient;
 
   @GET("recipes")
-  Future<List<RecipeResponseModel>?> getReciepe(@Query("ingredients") ingredients);
+  Future<List<RecipeResponseModel>?> getReciepe(
+    @Query("ingredients") String ingredients,
+  );
 }
