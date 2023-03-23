@@ -21,7 +21,7 @@ class HomeScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(
           Icons.add,
-          color: Color(0xffDB6C16),
+          color: Color(0xffEF2D5A),
         ),
         backgroundColor: Colors.white,
         onPressed: () {
@@ -71,6 +71,7 @@ class HomeScreen extends ConsumerWidget {
                             child: Container(
                               child: SfDateRangePicker(
                                 view: DateRangePickerView.month,
+                                maxDate: DateTime(2020, 12, 31, 0, 0),
                                 onSelectionChanged:
                                     (dateRangePickerSelectionChangedArgs) {
                                   selectionChanged(
@@ -79,7 +80,7 @@ class HomeScreen extends ConsumerWidget {
                                   context.pop();
                                   context.goNamed(AppRoute.ingredients.name);
                                 },
-                                selectionColor: Color(0xffDB6C16),
+                                selectionColor: Color(0xffEF2D5A),
                                 todayHighlightColor: Colors.grey,
                               ),
                             ),
@@ -97,6 +98,7 @@ class HomeScreen extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // DropDownCheckBox(),
           Center(
             child: Lottie.asset(
               "images/45730-recipes-book-animation.json",
