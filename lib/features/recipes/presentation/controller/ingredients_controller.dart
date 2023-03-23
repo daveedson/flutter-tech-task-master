@@ -22,12 +22,13 @@ class IngredientsContoller extends StateNotifier<IngredientsState> {
   Future<GetIngridentResponseModel?> getAllIngredients() async {
     state = state.copyWith(ingredients: const AsyncValue.loading());
     final result = await ref.read(ingredientServiceProvider).getIngredients();
-    result.when((success) {
+   return result.when((success) {
       state = state.copyWith(ingredients: AsyncValue.data(success));
+      return null;
     }, (error) {
       state = state.copyWith(
           ingredients: AsyncValue.error(error, StackTrace.current));
+      return null;
     });
-    
   }
 }
